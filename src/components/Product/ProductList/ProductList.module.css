@@ -4,3 +4,9 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.OrderDropdown {
+  position: absolute;
+  right: 20px;
+  top: 82px;
+}

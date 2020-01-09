@@ -3,11 +3,12 @@ import * as actionTypes from '../actions/actionTypes';
 const initialState = {
   products: [],
   error: '',
+  order: '',
   loading: false,
 }
 
 const reducer = (state = initialState, action) => {
-  switch (actionTypes) {
+  switch (action.type) {
     case actionTypes.SET_PRODUCTS:
       return { 
         ...state,
@@ -26,7 +27,13 @@ const reducer = (state = initialState, action) => {
         ...state,
         loading: true,
       }
-    default: 
+    case actionTypes.ORDER_PRODUCT_LIST:
+      return {
+        ...state,
+        products: action.products,
+        order: action.order,
+      }
+    default:
       return state;
   };
 }
