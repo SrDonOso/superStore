@@ -1,0 +1,19 @@
+.Product {
+  width: 30%;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 3px #ccc;
+  margin: 10px auto;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.ProductImage {
+  width: 100px;
+  height: 100px;
+}
+
+.Description {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
