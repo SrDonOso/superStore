@@ -30,12 +30,26 @@ export const getProducts = () => {
         for (let key in response.data) {
           fetchProducts.push({
             ...response.data[key],
+            price: +response.data[key].price,
             id: key,
           });
         }
-        console.log('[ProductAction.js]', fetchProducts);
         dispatch(setProducts(fetchProducts));
       })
       .catch(error => dispatch(fetchProductsFailed(error)));
+  }
+}
+
+export const orderProductList = (products, order) => {
+  const orderedProducts = products.concat();
+  if (order === 'asc') {
+    orderedProducts.sort((a,b) => (+a.price) - (+b.price));
+  } else if (order === 'desc') {
+    orderedProducts.sort((a,b) => (+a.price) - (+b.price)).reverse();
+  }
+  return {
+    type: actionTypes.ORDER_PRODUCT_LIST,
+    products: orderedProducts,
+    order: order,
   }
 }
