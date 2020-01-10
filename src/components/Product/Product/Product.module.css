@@ -17,3 +17,13 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
+
+.ButtonAsLink {
+  display: block;
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;
+}
