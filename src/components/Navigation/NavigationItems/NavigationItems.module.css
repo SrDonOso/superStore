@@ -8,6 +8,17 @@
   height: 100%;
 }
 
+.ShoppingListButton {
+  color: white;
+  background: none;
+  text-decoration: none;
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  border: none;
+  height: 100%;
+}
+
 @media (min-width: 500px) {
   .NavigationItems {
     flex-flow: row;

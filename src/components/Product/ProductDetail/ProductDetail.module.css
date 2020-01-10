@@ -1,0 +1,17 @@
+.ProductDetail {
+  width: 80%;
+  display: flex;
+}
+
+.ProductImage {
+  width: 300px;
+  height: 300px;
+}
+
+.ImageContainer {
+  display: inline;
+}
+
+.DetailContainer {
+  padding-left: 20px;
+}

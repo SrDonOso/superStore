@@ -25,7 +25,7 @@ class AddProduct extends Component {
       price: this.state.price
     };
 
-    axios.post('/products.json', productData)
+    axios.put('/products.json', productData)
       .then(response => {
         this.props.history.replace('/');
       })

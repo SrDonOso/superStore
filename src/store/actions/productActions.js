@@ -8,22 +8,22 @@ export const setProducts = (products) => {
   };
 };
 
-export const fetchProductsFailed = (error) => {
+export const fetchFailed = (error) => {
   return {
-    type: actionTypes.FETCH_PRODUCTS_FAILED,
+    type: actionTypes.FETCH_FAILED,
     error: error,
   };
 };
 
-export const fetchProductStart = () => {
+export const fetchStart = () => {
   return {
-    type: actionTypes.FETCH_PRODUCTS_START,
+    type: actionTypes.FETCH_START,
   }
 }
 
 export const getProducts = () => {
   return dispatch => {
-    dispatch(fetchProductStart());
+    dispatch(fetchStart());
     axios.get('/products.json')
       .then(response => {
         const fetchProducts = [];
@@ -31,12 +31,11 @@ export const getProducts = () => {
           fetchProducts.push({
             ...response.data[key],
             price: +response.data[key].price,
-            id: key,
           });
         }
         dispatch(setProducts(fetchProducts));
       })
-      .catch(error => dispatch(fetchProductsFailed(error)));
+      .catch(error => dispatch(fetchFailed(error)));
   }
 }
 
@@ -51,5 +50,47 @@ export const orderProductList = (products, order) => {
     type: actionTypes.ORDER_PRODUCT_LIST,
     products: orderedProducts,
     order: order,
+  }
+}
+
+export const setProduct = (product) => {
+  return {
+    type: actionTypes.SET_PRODUCT,
+    product: product,
+  };
+};
+
+export const getProduct = (productSku) => {
+  return dispatch => {
+    dispatch(fetchStart());
+    axios.get('/products.json', { params: { sku: productSku } })
+      .then(response => {
+        const fetchProducts = [];
+        for (let key in response.data) {
+          fetchProducts.push({
+            ...response.data[key],
+          });
+        }
+        dispatch(setProduct(fetchProducts.find(x => x.sku === productSku)));
+      })
+      .catch(error => dispatch(fetchFailed(error)));
+  }
+}
+
+export const setProductId = (productSku) => {
+  return {
+    type: actionTypes.SET_PRODUCT_ID,
+    productSku: productSku,
+  }
+}
+
+export const addToShoppingList = (product, quantity) => {
+  const productAdded = {
+    product: product,
+    quantity: quantity
+  }
+  return {
+    type: actionTypes.ADD_TO_SHOPPING_LIST,
+    productAdded: productAdded, 
   }
 }

@@ -15,7 +15,7 @@ class Products extends Component {
   render() {
     let products = <Spinner />;
     if (!this.props.loading) {
-      products = <ProductList products={this.props.products} />;
+      products = <ProductList history={this.props.history} products={this.props.products} />;
     }
     return (
       <div className={classes.Product}>
