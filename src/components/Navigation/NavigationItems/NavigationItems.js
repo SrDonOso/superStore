@@ -21,6 +21,7 @@ class NavigationItems extends Component {
       <Auxiliar>
         <ul className={classes.NavigationItems}>
           <NavigationItem link="/" exact>Products</NavigationItem>
+          <NavigationItem link="/addproduct" exact>Add Product</NavigationItem>
           <button onClick={this.toggleCartHandler} disabled={length === 0} className={classes.ShoppingListButton}>
             Cart {length > 0 ? '(' + length + ')' : ''}
           </button>
