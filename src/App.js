@@ -4,6 +4,7 @@ import Layout from './hoc/Layout/Layout';
 import Products from './containers/Products/Products';
 import classes from './App.module.css';
 import ProductDetail from './components/Product/ProductDetail/ProductDetail';
+import AddProduct from './components/Product/AddProduct';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={Products}/>
             <Route path="/product" exact component={ProductDetail}/>
+            <Route path="/addproduct" exact component={AddProduct} />
           </Switch>
         </Layout>
       </div>

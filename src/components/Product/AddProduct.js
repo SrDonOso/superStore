@@ -4,6 +4,7 @@ import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
 class AddProduct extends Component {
   state = {
+    sky: '',
     name: '',
     description: '',
     price: 0,
@@ -20,6 +21,7 @@ class AddProduct extends Component {
   saveProductHandler = (event) => {
     event.preventDefault();
     const productData = {
+      sku: this.state.sku,
       name: this.state.name,
       description: this.state.description,
       price: this.state.price
@@ -35,10 +37,21 @@ class AddProduct extends Component {
     return (
       <div>
         <form onSubmit={this.saveProductHandler}>
-          <input type="text" placeholder="Name" value={this.state.name} onChange={(event) => this.onValueChange(event, 'name')} />
-          <textarea placeholder="Description" value={this.state.description} onChange={(event) => this.onValueChange(event, 'description')} />
-          <input type="number" placeholder="Price" value={this.state.price} onChange={(event) => this.onValueChange(event, 'price')} />
-          <button onClick={this.saveProduct}>SAVE</button>
+          <div>
+            <input type="text" placeholder="SKU" value={this.state.sku} onChange={(event) => this.onValueChange(event, 'sku')} />
+          </div>
+          <div>
+            <input type="text" placeholder="Name" value={this.state.name} onChange={(event) => this.onValueChange(event, 'name')} />
+          </div>
+          <div>
+            <textarea placeholder="Description" value={this.state.description} onChange={(event) => this.onValueChange(event, 'description')} />
+          </div>
+          <div>
+            <input type="number" placeholder="Price" value={this.state.price} onChange={(event) => this.onValueChange(event, 'price')} />
+          </div>
+          <div>
+            <button onClick={this.saveProduct}>SAVE</button>
+          </div>
         </form>
       </div>
     );
