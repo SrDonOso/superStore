@@ -1,3 +1,9 @@
 .Product {
   align-items: center;
 }
+
+.OrderDropdown {
+  position: absolute;
+  right: 20px;
+  top: 82px;
+}

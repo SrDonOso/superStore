@@ -4,6 +4,5 @@ export const FETCH_START = 'FETCH_START';
 export const FETCH_FAILED = 'FETCH_FAILED';
 
 export const ORDER_PRODUCT_LIST = 'ORDER_PRODUCT_LIST';
-export const SET_PRODUCT_ID = 'SET_PRODUCT_ID';
 
 export const ADD_TO_SHOPPING_LIST = 'ADD_TO_SHOPPING_LIST';

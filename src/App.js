@@ -3,9 +3,12 @@ import { Route, Switch } from 'react-router-dom';
 import Layout from './hoc/Layout/Layout';
 import Products from './containers/Products/Products';
 import classes from './App.module.css';
-import ProductDetail from './components/Product/ProductDetail/ProductDetail';
 import AddProduct from './components/Product/AddProduct';
+import OpenProduct from './containers/OpenProduct/OpenProduct';
 
+/**
+ * Main application component
+ */
 class App extends Component {
   render() {
     return (
@@ -13,7 +16,7 @@ class App extends Component {
         <Layout>
           <Switch>
             <Route path="/" exact component={Products}/>
-            <Route path="/product" exact component={ProductDetail}/>
+            <Route path="/product/:id" component={OpenProduct}/>
             <Route path="/addproduct" exact component={AddProduct} />
           </Switch>
         </Layout>

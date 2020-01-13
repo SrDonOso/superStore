@@ -2,14 +2,20 @@ import React, { Component } from 'react';
 import axios from '../../services/axios-config';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
+/**
+ * Component that has a form to add new products to the database
+ */
 class AddProduct extends Component {
   state = {
-    sky: '',
+    sku: '',
     name: '',
     description: '',
     price: 0,
   }
 
+  /**
+   * sets the value of the specified control to the state
+   */
   onValueChange = (event, id) => {
     const updatedForm = {
       ...this.state
@@ -18,6 +24,9 @@ class AddProduct extends Component {
     this.setState(updatedForm);
   }
 
+  /**
+   * call to the service to add a new product to the database
+   */
   saveProductHandler = (event) => {
     event.preventDefault();
     const productData = {
@@ -27,7 +36,7 @@ class AddProduct extends Component {
       price: this.state.price
     };
 
-    axios.put('/products.json', productData)
+    axios.post('/products.json', productData)
       .then(response => {
         this.props.history.replace('/');
       })

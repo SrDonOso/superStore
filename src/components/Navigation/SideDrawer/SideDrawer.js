@@ -5,6 +5,9 @@ import Auxiliar from '../../../hoc/Auxiliar/Auxiliar';
 import classes from './SideDrawer.module.css';
 import Backdrop from '../../UI/Backdrop/Backdrop';
 
+/**
+ * component that will show a sideDrawer when the app is on mobile mode
+ */
 const sideDrawer = (props) => {
   let attachedClasses = [classes.SideDrawer, classes.Close];
   if (props.show) {
