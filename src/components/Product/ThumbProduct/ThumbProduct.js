@@ -2,6 +2,9 @@ import React from 'react';
 import GenericProduct from '../../../assets/images/generic-product.jpg'
 import classes from './ThumbProduct.module.css'
 
+/**
+ * Component to be added to the ShoppingCart
+ */
 const thumbProduct = (props) => {
   return (
     <div className={classes.ThumbProduct}>

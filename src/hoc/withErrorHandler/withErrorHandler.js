@@ -2,12 +2,20 @@ import React, { Component } from 'react';
 import Modal from '../../components/UI/Modal/Modal';
 import Auxiliar from '../Auxiliar/Auxiliar';
 
+/**
+ * Wrapper component that will intercept any error that the axios service throws
+ * @param {Component that will be wrapped to show error when the service fails} WrappedComponent 
+ * @param {Monitored service} axios 
+ */
 const withErrorHandler = (WrappedComponent, axios) => {
   return class extends Component {
     state = {
       error: null,
     }; 
 
+    /**
+     * when componentWillMount ocurrs the request and response interceptors are initialized
+     */
     componentWillMount() {
       this.reqInterceptor = axios.interceptors.request.use(req => {
         this.setState({ error: null });
@@ -18,11 +26,17 @@ const withErrorHandler = (WrappedComponent, axios) => {
       });
     }
 
+    /**
+     * when componentWillUnmount ocurrs, the interceptors are ejected
+     */
     componentWillUnmount() {
       axios.interceptors.request.eject(this.reqInterceptor);
       axios.interceptors.response.eject(this.resInterceptor);
     }
 
+    /**
+     * when modal is closed the error gets cleaned
+     */
     errorConfirmedHandler = () => {
       this.setState({ error: null });
     }

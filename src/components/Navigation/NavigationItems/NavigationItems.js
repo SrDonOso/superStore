@@ -4,12 +4,18 @@ import classes from './NavigationItems.module.css';
 import { connect } from 'react-redux';
 import ShoppingCart from '../ShoppingCart/ShoppingCart';
 import Auxiliar from '../../../hoc/Auxiliar/Auxiliar';
- 
+
+/**
+ * component that will show navigation link to navigate in the application
+ */
 class NavigationItems extends Component {
   state = {
     toggleCart: false,
   }
 
+  /**
+   * show or hide the shopping cart
+   */
   toggleCartHandler = () => {
     const toggle = !this.state.toggleCart;
     this.setState({toggleCart: toggle});

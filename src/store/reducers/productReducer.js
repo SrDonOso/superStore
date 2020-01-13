@@ -1,15 +1,22 @@
 import * as actionTypes from '../actions/actionTypes';
 
+/**
+ * state shared in the application
+ */
 const initialState = {
   products: [],
   product: null,
-  productSku: null,
   shoppingList: [],
   error: '',
   order: '',
   loading: false,
 }
 
+/**
+ * Reducer that handles and update the state
+ * @param {state to be updated} state 
+ * @param {action to execute} action 
+ */
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SET_PRODUCTS:
@@ -42,11 +49,6 @@ const reducer = (state = initialState, action) => {
         product: action.product,
         loading: false,
         error: '',
-      }
-    case actionTypes.SET_PRODUCT_ID:
-      return {
-        ...state,
-        productSku: action.productSku,
       }
     case actionTypes.ADD_TO_SHOPPING_LIST:
       const newShoppingList = state.shoppingList.concat();

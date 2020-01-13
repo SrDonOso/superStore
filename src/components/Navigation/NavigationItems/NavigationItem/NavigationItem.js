@@ -2,6 +2,10 @@ import React from 'react';
 import classes from './NavigationItem.module.css';
 import { NavLink } from 'react-router-dom';
 
+/**
+ * component to show navigation item styled 
+ * 
+ */
 const navigationItem = (props) => (
   <li className={classes.NavigationItem}>
     <NavLink activeClassName={classes.active} exact={props.exact} to={props.link}>{props.children}</NavLink>

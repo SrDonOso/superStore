@@ -1,6 +1,10 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../services/axios-config';
 
+/**
+ * action that set a list of products for the state
+ * @param {List of products} products 
+ */
 export const setProducts = (products) => {
   return {
     type: actionTypes.SET_PRODUCTS,
@@ -8,6 +12,10 @@ export const setProducts = (products) => {
   };
 };
 
+/**
+ * when the service fails it sets the error for the state
+ * @param {error message} error 
+ */
 export const fetchFailed = (error) => {
   return {
     type: actionTypes.FETCH_FAILED,
@@ -15,12 +23,18 @@ export const fetchFailed = (error) => {
   };
 };
 
+/**
+ * indicate when the service will begin 
+ */
 export const fetchStart = () => {
   return {
     type: actionTypes.FETCH_START,
   }
 }
 
+/**
+ * call to the service to get the list of products
+ */
 export const getProducts = () => {
   return dispatch => {
     dispatch(fetchStart());
@@ -39,6 +53,11 @@ export const getProducts = () => {
   }
 }
 
+/**
+ * Order the product list by price
+ * @param {List of products} products 
+ * @param {Order for the list to be shown ('asc' or 'desc')} order 
+ */
 export const orderProductList = (products, order) => {
   const orderedProducts = products.concat();
   if (order === 'asc') {
@@ -53,6 +72,10 @@ export const orderProductList = (products, order) => {
   }
 }
 
+/**
+ * Set a specific product to the state
+ * @param {Selected Product} product 
+ */
 export const setProduct = (product) => {
   return {
     type: actionTypes.SET_PRODUCT,
@@ -60,6 +83,10 @@ export const setProduct = (product) => {
   };
 };
 
+/**
+ * Get a selected product and set it to the state
+ * @param {id for the product} productSku 
+ */
 export const getProduct = (productSku) => {
   return dispatch => {
     dispatch(fetchStart());
@@ -77,13 +104,11 @@ export const getProduct = (productSku) => {
   }
 }
 
-export const setProductId = (productSku) => {
-  return {
-    type: actionTypes.SET_PRODUCT_ID,
-    productSku: productSku,
-  }
-}
-
+/**
+ * Adds a product to the state to used in the shopping cart
+ * @param {selected product} product 
+ * @param {quantity of the specified product added to the shopping list} quantity 
+ */
 export const addToShoppingList = (product, quantity) => {
   const productAdded = {
     product: product,

@@ -2,6 +2,10 @@ import React from 'react';
 import classes from './ShoppingCart.module.css';
 import ThumbProduct from '../../Product/ThumbProduct/ThumbProduct';
 
+/**
+ * shopping cart that will have a list of ThumbProduct showing the quantity of products selected
+ * and a total to pay
+ */
 const shoppingCart = (props) => {
   let granTotal = 0;
 

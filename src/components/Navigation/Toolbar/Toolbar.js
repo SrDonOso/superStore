@@ -4,6 +4,9 @@ import Logo from '../../Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import DrawerToggle from '../SideDrawer/DrawerToggle/DrawerToggle';
 
+/**
+ * component that display a toolbar at the top of the app
+ */
 const toolbar = (props) => (
   <header className={classes.Toolbar}>
     <DrawerToggle clicked={props.drawerToogleClicked}/>
